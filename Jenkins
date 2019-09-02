@@ -20,6 +20,12 @@ maven 'mvn'
                 build job: 'First_container'
             }
         }
+        stage ('Code check-in'){
+            steps {
+                build job: 'Static_Anlysis'
+                 echo 'Code checked-in.'
+            }
+        }
         stage ('Deploy to Production'){
             steps{
                 timeout(time:5, unit:'DAYS'){
