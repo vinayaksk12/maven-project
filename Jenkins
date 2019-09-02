@@ -6,6 +6,10 @@ def checkCode()
 {
     return "Static_Analysis"
 }
+def buildProd()
+{
+    return build job: 'Prod_Container'
+}
 pipeline {
     agent any
     tools { 
@@ -41,7 +45,7 @@ maven 'mvn'
                     input message:'Approve PRODUCTION Deployment?'
                 }
 
-                build job: 'Prod_Container'
+                echo buildProd()
             }
             post {
                 success {
