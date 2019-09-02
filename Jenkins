@@ -8,7 +8,7 @@ def checkCode()
 }
 def buildProd()
 {
-    return build job: 'Prod_Container'
+    build job: 'Prod_Container'
 }
 pipeline {
     agent any
@@ -45,7 +45,7 @@ maven 'mvn'
                     input message:'Approve PRODUCTION Deployment?'
                 }
 
-                echo buildProd()
+                buildProd()
             }
             post {
                 success {
