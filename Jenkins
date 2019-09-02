@@ -1,3 +1,7 @@
+def archiveComment()
+{ 
+    return "now archiving ...."  
+}
 pipeline {
     agent any
     tools { 
@@ -10,7 +14,8 @@ maven 'mvn'
             }
             post {
                 success {
-                    echo 'Now Archiving...'
+                    //echo 'Now Archiving...'
+                    echo archiveComment()
                     archiveArtifacts artifacts: '**/target/*.war'
                 }
             }
