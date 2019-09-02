@@ -22,7 +22,7 @@ maven 'mvn'
         }
         stage ('Code check-in'){
             steps {
-                build job: 'Static_Anlysis'
+                build job: 'Static_Analysis'
                  echo 'Code checked-in.'
             }
         }
