@@ -2,6 +2,10 @@ def archiveComment()
 { 
     return "now archiving ...."  
 }
+def checkCode()
+{
+    return "Static_Analysis"
+}
 pipeline {
     agent any
     tools { 
@@ -27,8 +31,8 @@ maven 'mvn'
         }
         stage ('Code check-in'){
             steps {
-                build job: 'Static_Analysis'
-                 echo 'Code checked-in.'
+                build job: checkCode()
+                 
             }
         }
         stage ('Deploy to Production'){
